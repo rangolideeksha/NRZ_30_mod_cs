@@ -1,7 +1,7 @@
 from gdsfactory.technology import LayerLevel, LayerMap, LayerStack, LogicalLayer
 from gdsfactory.typings import Layer
 
-nm = 1e-3  # gdsfactory units are µm
+nm = 1e-3
 
 
 class LAYER(LayerMap):
@@ -37,6 +37,7 @@ LAYER_STACK = LayerStack(
         ),
         core=LayerLevel(
             layer=LogicalLayer(layer=LAYER.WG) - LogicalLayer(layer=LAYER.GRA),
+            derived_layer=LogicalLayer(layer=LAYER.WG),
             thickness=t_si,
             zmin=0.0,
             material="si",
@@ -44,6 +45,7 @@ LAYER_STACK = LayerStack(
         ),
         grating=LayerLevel(
             layer=LogicalLayer(layer=LAYER.WG) & LogicalLayer(layer=LAYER.GRA),
+            derived_layer=LogicalLayer(layer=LAYER.GRA),
             thickness=t_gra,
             zmin=0.0,
             material="si",
