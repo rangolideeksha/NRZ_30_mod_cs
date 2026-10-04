@@ -1,4 +1,3 @@
-import gdsfactory as gf
 from gdsfactory.technology import LayerLevel, LayerMap, LayerStack, LogicalLayer
 from gdsfactory.typings import Layer
 
